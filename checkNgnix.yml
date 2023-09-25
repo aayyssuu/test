@@ -1,0 +1,14 @@
+---
+- name: Check if Nginx is installed
+  hosts: 192.168.86.137
+  become: yes
+
+  tasks:
+    - name: Check if Nginx package is installed
+      command: dpkg -l | grep nginx
+      register: nginx_installed
+      ignore_errors: yes
+
+    - name: Display Nginx installation status
+      debug:
+        var: nginx_installed.stdout_lines
