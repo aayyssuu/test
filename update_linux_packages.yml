@@ -1,0 +1,10 @@
+---
+- name: Update CentOS 7 Packages
+  hosts: 192.168.86.138
+  become: yes  
+
+  tasks:
+    - name: Update CentOS packages
+      yum:
+        name: "*"
+        state: latest
