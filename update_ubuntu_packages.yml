@@ -1,0 +1,10 @@
+---
+- name: Update Ubuntu Packages
+  hosts: 192.168.86.138
+  become: yes  
+
+  tasks:
+    - name: Update Ubuntu packages
+      apt:
+        update_cache: yes
+        upgrade: dist 
